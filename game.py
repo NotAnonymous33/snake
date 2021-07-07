@@ -8,7 +8,7 @@ pygame.init()
 class Game:
     def __init__(self):
         self.window = pygame.display.set_mode((HEIGHT, HEIGHT))
-        self.window.fill((240, 240, 240))
+        self.window.fill(GREY)
         self.clock = pygame.time.Clock()
         self.cells = []
         self.head = Head(self.window)
@@ -17,6 +17,7 @@ class Game:
     def play(self):
         while self.game_on:
             pygame.display.update()
+            self.window.fill(GREY)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     self.game_on = False
@@ -33,8 +34,6 @@ class Game:
             self.head.draw()
             for cell in self.cells:
                 cell.draw()
-
-
 
 
             self.clock.tick(FPS)
