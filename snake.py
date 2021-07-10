@@ -19,11 +19,11 @@ class Head(Cell):
 
     def draw(self):
         if self.direction == 0:
-            self.x += 1
+            self.x += SPEED
         elif self.direction == 1:
-            self.y -= 1
+            self.y -= SPEED
         elif self.direction == 2:
-            self.x -= 1
+            self.x -= SPEED
         else:
-            self.y += 1
+            self.y += SPEED
         super().draw()

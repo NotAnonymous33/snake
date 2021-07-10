@@ -1,6 +1,7 @@
 from constants import *
 import pygame
 from snake import Cell, Head
+from food import Food
 
 
 pygame.init()
@@ -13,6 +14,7 @@ class Game:
         self.cells = []
         self.head = Head(self.window)
         self.game_on = True
+        self.food = Food(self.window)
 
     def play(self):
         while self.game_on:
@@ -31,9 +33,13 @@ class Game:
                     elif event.key == pygame.K_DOWN:
                         self.head.direction = 3
 
+
+            #drawing all objects
             self.head.draw()
             for cell in self.cells:
                 cell.draw()
+            self.food.draw()
+            
 
 
             self.clock.tick(FPS)
