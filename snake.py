@@ -9,7 +9,7 @@ class Cell:
         self.window = window
 
     def draw(self):
-        pygame.draw.rect(self.window, (0, 0, 0), [self.x*(LENGTH+OFFSET), self.y*(LENGTH+OFFSET), LENGTH, LENGTH])
+        pygame.draw.circle(self.window, (0, 0, 0), [self.x*(LENGTH+OFFSET), self.y*(LENGTH+OFFSET)], 15)
 
 
 class Head(Cell):

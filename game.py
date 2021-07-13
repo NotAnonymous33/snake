@@ -35,10 +35,17 @@ class Game:
 
 
             #drawing all objects
+            #print(self.food.distance(self.head))
+            if self.food.distance(self.head) < 20:
+                self.food.new_location()
+                #increase length
+                #increase points
+                #show points
+            self.food.draw()
             self.head.draw()
             for cell in self.cells:
                 cell.draw()
-            self.food.draw()
+
             
 
 
