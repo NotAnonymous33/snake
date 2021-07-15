@@ -8,8 +8,8 @@ class Cell:
         self.y = y
         self.window = window
 
-    def draw(self):
-        pygame.draw.circle(self.window, (0, 0, 0), [self.x*(LENGTH+OFFSET), self.y*(LENGTH+OFFSET)], 15)
+    def draw(self, color=(0, 0, 0)):
+        pygame.draw.circle(self.window, color, [(self.x%NUM_ROWS)*(LENGTH+OFFSET), (self.y%NUM_ROWS)*(LENGTH+OFFSET)], 15)
 
 
 class Head(Cell):
@@ -17,7 +17,7 @@ class Head(Cell):
         super().__init__(NUM_ROWS // 2, NUM_ROWS // 2, window)
         self.direction = 0
 
-    def draw(self):
+    def draw(self, color=(0, 120, 0)):
         if self.direction == 0:
             self.x += SPEED
         elif self.direction == 1:
@@ -26,4 +26,4 @@ class Head(Cell):
             self.x -= SPEED
         else:
             self.y += SPEED
-        super().draw()
+        super().draw(color)

@@ -14,8 +14,8 @@ class Food:
     def distance(self, head):
         xcor = self.x * (LENGTH + OFFSET) + LENGTH // 2
         ycor = self.y * (LENGTH + OFFSET) + LENGTH // 2
-        xcor_head = head.x * (LENGTH + OFFSET) + LENGTH // 2
-        ycor_head = head.y * (LENGTH + OFFSET) + LENGTH // 2
+        xcor_head = (head.x%NUM_ROWS) * (LENGTH + OFFSET) + LENGTH // 2
+        ycor_head = (head.y%NUM_ROWS) * (LENGTH + OFFSET) + LENGTH // 2
         return ((ycor_head - ycor)**2+(xcor_head - xcor)**2) ** 0.5
 
 
@@ -26,5 +26,5 @@ class Food:
     def new_location(self):
         self.x = random.randint(1, NUM_ROWS - 1)
         self.y = random.randint(1, NUM_ROWS - 1)
-        print(self.x, self.y)
+        # print(self.x, self.y)
 
